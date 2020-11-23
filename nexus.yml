@@ -1,0 +1,11 @@
+---
+- hosts: 172.20.10.2
+  become: true
+  tasks:
+  - name: Download war file from nexus artifact
+    maven_artifact:
+      group_id: maven-job
+      artifact_id: 1.0
+      extension: war
+      repository_url: 'http://172.20.10.4:8081/repository/maven-release/'
+      dest: /tomcat/webapps/
